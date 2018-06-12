@@ -1,7 +1,5 @@
 package primary.arrays;
 
-import java.util.Arrays;
-
 /**
  * @author Wwl
  * Ðý×ªÊý×é

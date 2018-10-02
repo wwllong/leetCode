@@ -2,7 +2,7 @@ package primary.string;
 
 /**
  * @author Wwl
- * Çë±àĞ´Ò»¸öº¯Êı£¬Æä¹¦ÄÜÊÇ½«ÊäÈëµÄ×Ö·û´®·´×ª¹ıÀ´¡£
+ * åè½¬å­—ç¬¦ä¸²
  */
 public class ReverseString {
 	//2ms

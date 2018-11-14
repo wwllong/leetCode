@@ -16,17 +16,17 @@ public class DeleteNodeTest {
 		ListNode node3 = new ListNode(1);
 		ListNode node4 = new ListNode(9);
 		
-		node1.setNext(node2);
-		node2.setNext(node3);
-		node3.setNext(node4);
+		node1.next = node2;
+		node2.next = node3;
+		node3.next = node4;
 		
 		new DeleteNode().deleteNode(node2);
 		
-		assertEquals(1, node1.getNext().getVal());
+		assertEquals(1, node1.next.val);
 		
 		new DeleteNode().deleteNode(node2);//这个时候，note3的信息已经转义到了2上
 		
-		assertEquals(9, node1.getNext().getVal());
+		assertEquals(9, node1.next.val);
 
 		
 	}

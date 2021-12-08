@@ -2,11 +2,11 @@ package temp;
 
 /**
  * @author Wwl
- * 回文数字
+ * 鍥炴枃鏁板瓧
  */
 public class IsPalindrome {
 	
-	/* 思路1：将数字转换为字符数组，倒转
+	/* 鎬濊矾1锛氬皢鏁板瓧杞崲涓哄瓧绗︽暟缁勶紝鍊掕浆
 	 * */
 	public int method1(int x) {
 		int result = 0;

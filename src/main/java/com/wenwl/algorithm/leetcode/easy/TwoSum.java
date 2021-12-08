@@ -10,7 +10,7 @@ import java.util.Map;
 public class TwoSum {
 
 	/**
-	 * m4: 在m3的基础上改进，可以先创建一个返回的数组, 2ms
+	 * m4(2ms): 在m3的基础上改进，可以先创建一个返回的数组
 	 */
 	public int[] twoSum4(int[] nums, int target) {
 		int[] result = new int[2];
@@ -27,7 +27,7 @@ public class TwoSum {
 	}
 	
 	/**
-	 * m3: 利用HashMap进行判断和存储, 2ms
+	 * m3(2ms): 利用HashMap进行判断和存储
 	 * */
 	public int[] twoSum3(int[] nums, int target) {
 		Map<Integer, Integer> map = new HashMap<>();
@@ -42,7 +42,7 @@ public class TwoSum {
 	}
 	
 	/**
-	 * m2: 优化遍历以及判断的次数, 30ms
+	 * m2(30ms): 优化遍历以及判断的次数
 	 * */
 	public int[] twoSum2(int[] nums, int target) {
 		for (int x = 0, len = nums.length; x < len; ++x) {
@@ -57,7 +57,7 @@ public class TwoSum {
 	}
 	
 	/**
-	 * m1: 普通遍历每个元素, 110ms
+	 * m1(110ms): 普通遍历每个元素
 	 **/
 	public int[] twoSum1(int[] nums, int target) {
 		for (int x = 0, len = nums.length; x < len; ++x) {

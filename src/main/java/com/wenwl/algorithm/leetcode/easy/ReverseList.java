@@ -2,7 +2,7 @@ package com.wenwl.algorithm.leetcode.easy;
 
 /**
  * @author wenwl
- * @see <a href="https://leetcode-cn.com/problems/single-number/">Q206-反转链表</a>
+ * @see <a href="https://leetcode-cn.com/problems/reverse-linked-list/">Q206-反转链表</a>
  */
 public class ReverseList {
 

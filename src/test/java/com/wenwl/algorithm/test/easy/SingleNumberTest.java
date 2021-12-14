@@ -30,20 +30,5 @@ public class SingleNumberTest {
 		TestCase.assertEquals(expected1, SingleNumber.singleNumber1(testCase1));
 		TestCase.assertEquals(expected2, SingleNumber.singleNumber1(testCase2));
 	}
-	
-//
-//
-//	@Test
-//	public void testSingleNumber3() {
-//		TestCase.assertEquals(1, SingleNumber.singleNumber3(testCase1));
-//		TestCase.assertEquals(4, SingleNumber.singleNumber3(testCase2));
-//	}
-//
-//	@Test
-//	public void testSingleNumber4() {
-//		TestCase.assertEquals(1, SingleNumber.singleNumber4(testCase1));
-//		TestCase.assertEquals(4, SingleNumber.singleNumber4(testCase2));
-//		TestCase.assertEquals(0, SingleNumber.singleNumber4(new int[] {1,0,1}));
-//	}
 
 }

@@ -1,5 +1,7 @@
 package com.wenwl.algorithm.leetcode.easy;
 
+import com.wenwl.algorithm.leetcode.domain.ListNode;
+
 /**
  * @author wenwl
  * @see <a href="https://leetcode-cn.com/problems/reverse-linked-list/">Q206-反转链表</a>
@@ -35,39 +37,6 @@ public class ReverseList {
 		}
         return node;
     }
-
-	public static class ListNode {
-
-		int val;
-		ListNode next;
-
-		public ListNode(){}
-
-		public ListNode(int val) {
-			this.val = val;
-		}
-
-		ListNode(int val, ListNode next) {
-			this.val = val;
-			this.next = next;
-		}
-
-		public ListNode setNext(ListNode next) {
-			this.next = next;
-			return this;
-		}
-
-		public String printList() {
-			StringBuilder stringBuilder = new StringBuilder();
-			stringBuilder.append(this.val);
-			ListNode next = this.next;
-			while(next != null) {
-				stringBuilder.append(next.val);
-				next = next.next;
-			}
-			return stringBuilder.toString();
-		}
-	}
 
 }
 

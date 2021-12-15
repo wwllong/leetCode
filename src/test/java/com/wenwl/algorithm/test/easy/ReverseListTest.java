@@ -2,27 +2,26 @@ package com.wenwl.algorithm.test.easy;
 
 import static org.junit.Assert.*;
 
+import com.wenwl.algorithm.leetcode.domain.ListNode;
 import com.wenwl.algorithm.leetcode.easy.ReverseList;
 import org.junit.Test;
 
 
 public class ReverseListTest {
 
-	ReverseList.ListNode testCase1 = new ReverseList.ListNode(1)
-			.setNext(new ReverseList.ListNode(2))
-			.setNext(new ReverseList.ListNode(3))
-			.setNext(new ReverseList.ListNode(4))
-			.setNext(new ReverseList.ListNode(5));
-	ReverseList.ListNode expected1 = new ReverseList.ListNode(5)
-			.setNext(new ReverseList.ListNode(4))
-			.setNext(new ReverseList.ListNode(3))
-			.setNext(new ReverseList.ListNode(2))
-			.setNext(new ReverseList.ListNode(1));
+	ListNode testCase1 = new ListNode(1,
+			new ListNode(2),
+			new ListNode(3),
+			new ListNode(4),
+			new ListNode(5));
+	ListNode expected1 = new ListNode(5,
+			new ListNode(4),
+			new ListNode(3),
+			new ListNode(2),
+			new ListNode(1));
 
-	ReverseList.ListNode testCase2 = new ReverseList.ListNode(1)
-			.setNext(new ReverseList.ListNode(2));
-	ReverseList.ListNode expected2 = new ReverseList.ListNode(2)
-			.setNext(new ReverseList.ListNode(1));
+	ListNode testCase2 = new ListNode(1, new ListNode(2));
+	ListNode expected2 = new ListNode(2, new ListNode(1));
 
 	@Test
 	public void test2() {

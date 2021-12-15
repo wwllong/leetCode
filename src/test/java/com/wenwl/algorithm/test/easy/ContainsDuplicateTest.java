@@ -20,18 +20,11 @@ public class ContainsDuplicateTest {
 	boolean expected4 = true;
 
 	@Test
-	public void testContainsDuplicate5() {
-		TestCase.assertEquals(expected1, ContainsDuplicate.containsDuplicate5(testCase1));
-		TestCase.assertEquals(expected2, ContainsDuplicate.containsDuplicate5(testCase2));
-		TestCase.assertEquals(expected3, ContainsDuplicate.containsDuplicate5(testCase3));
-		TestCase.assertEquals(expected4, ContainsDuplicate.containsDuplicate5(testCase4));
-	}
-
-	@Test
 	public void testContainsDuplicate4() {
 		TestCase.assertEquals(expected1, ContainsDuplicate.containsDuplicate4(testCase1));
 		TestCase.assertEquals(expected2, ContainsDuplicate.containsDuplicate4(testCase2));
 		TestCase.assertEquals(expected3, ContainsDuplicate.containsDuplicate4(testCase3));
+		TestCase.assertEquals(expected4, ContainsDuplicate.containsDuplicate4(testCase4));
 	}
 
 
@@ -40,6 +33,7 @@ public class ContainsDuplicateTest {
 		TestCase.assertEquals(expected1, ContainsDuplicate.containsDuplicate3(testCase1));
 		TestCase.assertEquals(expected2, ContainsDuplicate.containsDuplicate3(testCase2));
 		TestCase.assertEquals(expected3, ContainsDuplicate.containsDuplicate3(testCase3));
+		TestCase.assertEquals(expected4, ContainsDuplicate.containsDuplicate3(testCase4));
 	}
 
 	@Test
@@ -47,6 +41,7 @@ public class ContainsDuplicateTest {
 		TestCase.assertEquals(expected1, ContainsDuplicate.containsDuplicate2(testCase1));
 		TestCase.assertEquals(expected2, ContainsDuplicate.containsDuplicate2(testCase2));
 		TestCase.assertEquals(expected3, ContainsDuplicate.containsDuplicate2(testCase3));
+		TestCase.assertEquals(expected4, ContainsDuplicate.containsDuplicate2(testCase4));
 	}
 
 	@Test
@@ -54,6 +49,7 @@ public class ContainsDuplicateTest {
 		TestCase.assertEquals(expected1, ContainsDuplicate.containsDuplicate1(testCase1));
 		TestCase.assertEquals(expected2, ContainsDuplicate.containsDuplicate1(testCase2));
 		TestCase.assertEquals(expected3, ContainsDuplicate.containsDuplicate1(testCase3));
+		TestCase.assertEquals(expected4, ContainsDuplicate.containsDuplicate1(testCase4));
 	}
 	
 //

@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  * @author wenwl
- * @see <a href="https://leetcode-cn.com/problems/valid-anagram/">Q290-单词规律</a>
+ * @see <a href="https://leetcode-cn.com/problems/word-pattern/˚">Q290-单词规律</a>
  */
 public class WordPattern {
 

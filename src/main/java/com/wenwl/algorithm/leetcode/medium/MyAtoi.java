@@ -1,28 +1,22 @@
-package primary.string;
+package com.wenwl.algorithm.leetcode.medium;
 
 /**
- * @author Wwl
- * 字符串转整数 (atoi)
- * 1.丢弃多余空格字符，直到找到第一个非空格字符。
- *   如果是正号、负号、数字，拼接连续的数字
- * 2.无效的转换：第一个非空字符序列不是有效整数，字符字符串为空，
- *   返回0
- * 3.转换超过限制，数值范围为4个字节。
- *   返回最大值或最小值
- * 
+ * @author wenwl
+ * @see <a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">Q8-字符串转换整数 (atoi)</a>
  */
 public class MyAtoi {
 	
-	/**思路1：遍历字符串(charAt)，逐个判断
-	 * 截取字符串，包含+、-
-	 * 对字符串进行数字拼接
+	/**
+	 * m1()：按照要求遍历str字符串，返回整型
+	 * 对+、-、数字做处理，拼接成新字符串
 	 * 转换字符串（返回有效字符）
 	 * 33ms
 	 * */
 	public int myAtoi1(String str) {
-		if(str == null) return 0;
-		if(str.length()<0) return 0;
-		
+		if (str == null || str.length() == 0) {
+			return 0;
+		}
+
 		StringBuffer strBuf = new StringBuffer();
 		
 		//截取字符：第一个非空字符到末端

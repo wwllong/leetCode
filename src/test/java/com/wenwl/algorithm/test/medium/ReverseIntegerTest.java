@@ -1,6 +1,6 @@
-package com.wenwl.algorithm.test.easy;
+package com.wenwl.algorithm.test.medium;
 
-import com.wenwl.algorithm.leetcode.easy.ReverseInteger;
+import com.wenwl.algorithm.leetcode.medium.ReverseInteger;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

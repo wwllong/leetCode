@@ -1,4 +1,4 @@
-package com.wenwl.algorithm.leetcode.easy;
+package com.wenwl.algorithm.leetcode.medium;
 
 /**
  * @author wenwl

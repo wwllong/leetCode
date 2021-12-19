@@ -2,7 +2,7 @@ package com.wenwl.algorithm.leetcode.easy;
 
 /**
  * @author wenwl
- * @see <a href="https://leetcode-cn.com/problems/first-unique-character-in-a-string/submissions/">Q387-字符串中的第一个唯一字符</a>
+ * @see <a href="https://leetcode-cn.com/problems/first-unique-character-in-a-string/">Q387-字符串中的第一个唯一字符</a>
  */
 public class FirstUniqChar {
 

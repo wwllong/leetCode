@@ -12,7 +12,7 @@ public class MyAtoiTest {
 	MyAtoi myAtoi = new MyAtoi();
 
 	String str1 = "42";
-	int expected1 = -42;
+	int expected1 = 42;
 	String str2 = "   -42";
 	int expected2 = -42;
 	String str3 = "4193 with words";
@@ -31,6 +31,11 @@ public class MyAtoiTest {
 	int expected9 = 0;
 	String str10 = "-9223372036854775809";
 	int expected10 = -2147483648;
+	String str11 = "00000-42a1234";
+	int expected11 = 0;
+	String str12 = "-13+8";
+	int expected12 = -13;
+
 
 	@Test
 	public void test1() {
@@ -44,6 +49,8 @@ public class MyAtoiTest {
 		assertEquals(expected8, myAtoi.myAtoi1(str8));
 		assertEquals(expected9, myAtoi.myAtoi1(str9));
 		assertEquals(expected10, myAtoi.myAtoi1(str10));
+		assertEquals(expected11, myAtoi.myAtoi1(str11));
+		assertEquals(expected12, myAtoi.myAtoi1(str12));
 	}
 	
 	@Test

@@ -7,84 +7,63 @@ package com.wenwl.algorithm.leetcode.medium;
 public class MyAtoi {
 	
 	/**
-	 * m1()：按照要求遍历str字符串，返回整型
-	 * 对+、-、数字做处理，拼接成新字符串
-	 * 转换字符串（返回有效字符）
+	 * m1(1ms，)：按照要求遍历str字符串，返回整型
+	 * 对+、-、数字做定位，截取成"数字"字符串
+	 * 对数字字符串转换成数字
 	 * 33ms
 	 * */
-	public int myAtoi1(String str) {
-		if (str == null || str.length() == 0) {
+	public int myAtoi1(String s) {
+		if (s == null || s.length() == 0) {
 			return 0;
 		}
 
-		StringBuffer strBuf = new StringBuffer();
-		
-		//截取字符：第一个非空字符到末端
-		boolean flag = true; //是否有带+ 、 -
-		for(int x=0 ; x<str.length(); ++x) {
-			if(str.charAt(x)==' ') {
-				continue;
-			} else {
-				//对字符的正负号进行判断
-				if(str.charAt(x)=='-') {
-					flag = false;
-					if(x+1>str.length()) {//特殊情况 ，说明第一个字符后面没有字符了
-						return 0;
-					}else {
-						++x;
-					}
-				} else if(str.charAt(x)=='+') {
-					if(x+1>str.length()) {//特殊情况 ，说明第一个字符后面没有字符了
-						return 0;
-					}else {
-						++x;
-					}
+		char[] chars = s.toCharArray();
+		int start = 0, i = 0;
+		// 标记是否出现过数字，避免中间出现 ' '、'+'、'-'的情况
+		boolean hasNumber = false;
+		while (i < chars.length){
+			char aChar = chars[i];
+			if (aChar == ' '){
+				if (hasNumber){
+					break;
 				}
-				str = str.substring(x);
+				start = ++i;
+				continue;
+			}
+			if (aChar == '-' || aChar == '+'){
+				if (hasNumber){
+					break;
+				}
+				// 特殊情况: 索引已经达到末端或下一个字符不是数字
+				if (i == s.length() - 1 || chars[i+1] < '0' || chars[i+1] > '9'){
+					return 0;
+				}
+			}else if (aChar < '0' || aChar > '9'){
+				if (i == start){
+					return 0;
+				}
 				break;
 			}
+			hasNumber = true;
+			i++;
 		}
-		
-		int i = 0;
-		int j = str.length()-1;
-		char temp = ' ';
-		//遍历字符，拼接有效字符
-		while(i<=j) {
-			temp = str.charAt(i);
-			
-			//对符号的判断，避免字符串前后都有一个+或者-
-			if(temp >= '0' && temp <= '9') { //有效字符
-				strBuf.append(temp);
-				++i;
-			}else {
-				//添加数字的正负号信息
-				break;
+
+		String digitalStr = s.substring(start, i);
+		char[] digitalCharArr = digitalStr.toCharArray();
+		int result = 0, sign = 1;
+		for (char c : digitalCharArr) {
+			if (c == '-' || c == '+') {
+				sign = c == '-' ? -1 : 1;
+				continue;
 			}
-			
-		}
-		
-		int result = 0;
-		long parse = 0l;
-		try {
-			//添加正负号信息
-			if(!flag) strBuf.insert(0, '-');
-			parse = Long.parseLong(strBuf.toString()); 
-		}catch(NumberFormatException e) {
-			if(strBuf.length()>10) { //避免出现比long还大或者小的数导致的异常
-				result = (flag==true)?Integer.MAX_VALUE : Integer.MIN_VALUE;
+			int temp = result * 10 + (c - '0');
+			if (temp / 10 != result) {
+				return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 			}
-			return result; //无法转换，直接返回0
+			result = temp;
 		}
 		
-		if(parse > Integer.MAX_VALUE) {
-			result = Integer.MAX_VALUE;
-		}else if(parse < Integer.MIN_VALUE){
-			result = Integer.MIN_VALUE;
-		}else {
-			result =(int) parse;
-		}
-		
-		return strBuf.toString().length()==0?0:result;
+		return result * sign;
 	}
 	
 	/**

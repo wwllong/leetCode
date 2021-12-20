@@ -7,7 +7,7 @@ package com.wenwl.algorithm.leetcode.medium;
 public class MyAtoi {
 
 	/**
-	 * m2()：基于m1优化，将遍历和转换成数字计算整合，优化遍历中的判断
+	 * m2(1ms,1082tc)：基于m1优化，将遍历和转换成数字计算整合，优化遍历中的判断
 	 */
 	public int myAtoi2(String s) {
 		if (s == null || s.length() == 0) {
@@ -15,73 +15,31 @@ public class MyAtoi {
 		}
 
 		char[] chars = s.toCharArray();
-		int start = 0, index = 0;
-		int result = 0, sign = 1;
-		// 标记是否出现过数字，避免中间出现 ' '、'+'、'-'的情况
+		int index = 0, result = 0, sign = 1;
 		boolean hasNumber = false;
 		while (index < chars.length){
 			char aChar = chars[index];
 			if (aChar >= '0' && aChar <= '9'){
-				hasNumber = true;
-				// 计算结果
 				int temp = result * 10 + (aChar - '0');
 				if (temp / 10 != result) {
 					return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 				}
 				result = temp;
-				index++;
-			}else {
-				if (aChar == ' '){
-					if (hasNumber){
-						break;
-					}
-					start = ++index;
-					continue;
-				} else if (aChar == '-' || aChar == '+'){
-					if (hasNumber){
-						break;
-					}
-					// 特殊情况: 索引已经达到末端或下一个字符不是数字
-					if (index == s.length() - 1 || chars[index+1] < '0' || chars[index+1] > '9'){
-						return 0;
-					}
-					sign = aChar == '-' ? -1 : 1;
-					index++;
-					continue;
-				}else if (aChar < '0' || aChar > '9'){
-					if (index == start){
-						return 0;
-					}
-				    break;
+				hasNumber = true;
+			} else if (aChar == ' ' || aChar == '-' || aChar == '+'){
+				// 数字中间出现特殊字符或+、-连续出现
+				if (hasNumber || (aChar != ' '
+						&& index != s.length() - 1
+						&& (chars[index + 1] < '0' || chars[index + 1] > '9'))){
+					break;
 				}
+				if (aChar != ' '){
+					sign = aChar == '-' ? -1 : 1;
+				}
+			}else {
+				break;
 			}
-
-//			if (aChar == ' '){
-//				if (hasNumber){
-//					break;
-//				}
-//				start = ++index;
-//				continue;
-//			}
-//			else if (aChar == '-' || aChar == '+'){
-//				if (hasNumber){
-//					break;
-//				}
-//				// 特殊情况: 索引已经达到末端或下一个字符不是数字
-//				if (index == s.length() - 1 || chars[index+1] < '0' || chars[index+1] > '9'){
-//					return 0;
-//				}
-//				sign = aChar == '-' ? -1 : 1;
-//				index++;
-//				continue;
-//			}
-//			else if (aChar < '0' || aChar > '9'){
-//				if (index == start){
-//					return 0;
-//				}
-//				break;
-//			}
-
+			index++;
 		}
 
 		return result * sign;

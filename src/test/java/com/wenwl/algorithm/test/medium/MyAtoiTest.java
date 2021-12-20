@@ -17,7 +17,7 @@ public class MyAtoiTest {
 	int expected2 = -42;
 	String str3 = "4193 with words";
 	int expected3 = 4193;
-	String str4 = "words and 987";
+	String str4 = "  words and 987";
 	int expected4 = 0;
 	String str5 = "-91283472332";
 	int expected5 = -2147483648;
@@ -35,6 +35,8 @@ public class MyAtoiTest {
 	int expected11 = 0;
 	String str12 = "-13+8";
 	int expected12 = -13;
+	String str13 = "+-12";
+	int expected13 = 0;
 
 
 	@Test
@@ -51,6 +53,7 @@ public class MyAtoiTest {
 		assertEquals(expected10, myAtoi.myAtoi2(str10));
 		assertEquals(expected11, myAtoi.myAtoi2(str11));
 		assertEquals(expected12, myAtoi.myAtoi2(str12));
+		assertEquals(expected13, myAtoi.myAtoi2(str13));
 	}
 
 	@Test
@@ -67,5 +70,6 @@ public class MyAtoiTest {
 		assertEquals(expected10, myAtoi.myAtoi1(str10));
 		assertEquals(expected11, myAtoi.myAtoi1(str11));
 		assertEquals(expected12, myAtoi.myAtoi1(str12));
+		assertEquals(expected13, myAtoi.myAtoi1(str13));
 	}
 }

@@ -38,6 +38,22 @@ public class MyAtoiTest {
 
 
 	@Test
+	public void test2() {
+		assertEquals(expected1, myAtoi.myAtoi2(str1));
+		assertEquals(expected2, myAtoi.myAtoi2(str2));
+		assertEquals(expected3, myAtoi.myAtoi2(str3));
+		assertEquals(expected4, myAtoi.myAtoi2(str4));
+		assertEquals(expected5, myAtoi.myAtoi2(str5));
+		assertEquals(expected6, myAtoi.myAtoi2(str6));
+		assertEquals(expected7, myAtoi.myAtoi2(str7));
+		assertEquals(expected8, myAtoi.myAtoi2(str8));
+		assertEquals(expected9, myAtoi.myAtoi2(str9));
+		assertEquals(expected10, myAtoi.myAtoi2(str10));
+		assertEquals(expected11, myAtoi.myAtoi2(str11));
+		assertEquals(expected12, myAtoi.myAtoi2(str12));
+	}
+
+	@Test
 	public void test1() {
 		assertEquals(expected1, myAtoi.myAtoi1(str1));
 		assertEquals(expected2, myAtoi.myAtoi1(str2));
@@ -52,18 +68,4 @@ public class MyAtoiTest {
 		assertEquals(expected11, myAtoi.myAtoi1(str11));
 		assertEquals(expected12, myAtoi.myAtoi1(str12));
 	}
-	
-	@Test
-	public void test2() {
-		assertEquals(-42, myAtoi.myAtoi2(str1));
-		assertEquals(4193, myAtoi.myAtoi2(str2));
-		assertEquals(0, myAtoi.myAtoi2(str3));
-		assertEquals(-2147483648, myAtoi.myAtoi2(str4));
-		assertEquals(0, myAtoi.myAtoi2(str5));
-		assertEquals(2147483647, myAtoi.myAtoi2(str6));
-		assertEquals(-5, myAtoi.myAtoi2(str7));
-		assertEquals(0, myAtoi.myAtoi2(str8));
-		assertEquals(-2147483648, myAtoi.myAtoi2(str9));
-	}
-
 }

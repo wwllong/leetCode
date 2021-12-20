@@ -7,37 +7,84 @@ package com.wenwl.algorithm.leetcode.medium;
 public class MyAtoi {
 
 	/**
-	 * m2()：基于m1优化
-	 * 方法1带来的复杂判断问题主要是字符串转换为整型导致的，改成通过累加思想对其进行判断。
-	 * 字符串的预处理，去除两端空字符,无效字符判断等
-	 * 获取到正负号信息
-	 * 进行累加判断
-	 * 29ms
+	 * m2()：基于m1优化，将遍历和转换成数字计算整合，优化遍历中的判断
 	 */
-	public int myAtoi2(String str) {
-		str = str.trim();
-		if(str.isEmpty()) return 0;
-
-		int i = 0;
-		int sign = 1;
-		//正负号信息记录
-		if(str.charAt(i)=='+' || str.charAt(i)=='-') {
-			sign = str.charAt(i)=='+' ? 1 : -1;
-			++i;
+	public int myAtoi2(String s) {
+		if (s == null || s.length() == 0) {
+			return 0;
 		}
 
-		long result = 0;
-		//判断合法，并累加结果
-		while(i<str.length() && str.charAt(i) >='0' && str.charAt(i) <='9') {
-			result = result * 10 + (str.charAt(i)-'0');
-			//溢出判断
-			if(result > Integer.MAX_VALUE) {
-				return sign==1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+		char[] chars = s.toCharArray();
+		int start = 0, index = 0;
+		int result = 0, sign = 1;
+		// 标记是否出现过数字，避免中间出现 ' '、'+'、'-'的情况
+		boolean hasNumber = false;
+		while (index < chars.length){
+			char aChar = chars[index];
+			if (aChar >= '0' && aChar <= '9'){
+				hasNumber = true;
+				// 计算结果
+				int temp = result * 10 + (aChar - '0');
+				if (temp / 10 != result) {
+					return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+				}
+				result = temp;
+				index++;
+			}else {
+				if (aChar == ' '){
+					if (hasNumber){
+						break;
+					}
+					start = ++index;
+					continue;
+				} else if (aChar == '-' || aChar == '+'){
+					if (hasNumber){
+						break;
+					}
+					// 特殊情况: 索引已经达到末端或下一个字符不是数字
+					if (index == s.length() - 1 || chars[index+1] < '0' || chars[index+1] > '9'){
+						return 0;
+					}
+					sign = aChar == '-' ? -1 : 1;
+					index++;
+					continue;
+				}else if (aChar < '0' || aChar > '9'){
+					if (index == start){
+						return 0;
+					}
+				    break;
+				}
 			}
-			++i;
+
+//			if (aChar == ' '){
+//				if (hasNumber){
+//					break;
+//				}
+//				start = ++index;
+//				continue;
+//			}
+//			else if (aChar == '-' || aChar == '+'){
+//				if (hasNumber){
+//					break;
+//				}
+//				// 特殊情况: 索引已经达到末端或下一个字符不是数字
+//				if (index == s.length() - 1 || chars[index+1] < '0' || chars[index+1] > '9'){
+//					return 0;
+//				}
+//				sign = aChar == '-' ? -1 : 1;
+//				index++;
+//				continue;
+//			}
+//			else if (aChar < '0' || aChar > '9'){
+//				if (index == start){
+//					return 0;
+//				}
+//				break;
+//			}
 
 		}
-		return ((int)result)*sign;
+
+		return result * sign;
 	}
 	
 	/**

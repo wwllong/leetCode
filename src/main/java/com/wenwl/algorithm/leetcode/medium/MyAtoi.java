@@ -5,9 +5,43 @@ package com.wenwl.algorithm.leetcode.medium;
  * @see <a href="https://leetcode-cn.com/problems/string-to-integer-atoi/">Q8-字符串转换整数 (atoi)</a>
  */
 public class MyAtoi {
+
+	/**
+	 * m2()：基于m1优化
+	 * 方法1带来的复杂判断问题主要是字符串转换为整型导致的，改成通过累加思想对其进行判断。
+	 * 字符串的预处理，去除两端空字符,无效字符判断等
+	 * 获取到正负号信息
+	 * 进行累加判断
+	 * 29ms
+	 */
+	public int myAtoi2(String str) {
+		str = str.trim();
+		if(str.isEmpty()) return 0;
+
+		int i = 0;
+		int sign = 1;
+		//正负号信息记录
+		if(str.charAt(i)=='+' || str.charAt(i)=='-') {
+			sign = str.charAt(i)=='+' ? 1 : -1;
+			++i;
+		}
+
+		long result = 0;
+		//判断合法，并累加结果
+		while(i<str.length() && str.charAt(i) >='0' && str.charAt(i) <='9') {
+			result = result * 10 + (str.charAt(i)-'0');
+			//溢出判断
+			if(result > Integer.MAX_VALUE) {
+				return sign==1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+			}
+			++i;
+
+		}
+		return ((int)result)*sign;
+	}
 	
 	/**
-	 * m1(1ms，)：按照要求遍历str字符串，返回整型
+	 * m1(1ms，1082tc)：按照要求遍历str字符串，返回整型
 	 * 对+、-、数字做定位，截取成"数字"字符串
 	 * 对数字字符串转换成数字
 	 * 33ms
@@ -64,39 +98,6 @@ public class MyAtoi {
 		}
 		
 		return result * sign;
-	}
-	
-	/**
-	 * 改进1方法：方法1带来的复杂判断问题主要是字符串转换为整型导致的，改成通过累加思想对其进行判断。
-	 * 字符串的预处理，去除两端空字符,无效字符判断等
-	 * 获取到正负号信息
-	 * 进行累加判断
-	 * 29ms
-	 */
-	public int myAtoi2(String str) {
-		str = str.trim();
-		if(str.isEmpty()) return 0;
-		
-		int i = 0;
-		int sign = 1;
-		//正负号信息记录
-		if(str.charAt(i)=='+' || str.charAt(i)=='-') {
-			sign = str.charAt(i)=='+' ? 1 : -1;
-			++i;
-		}
-		
-		long result = 0;
-		//判断合法，并累加结果
-		while(i<str.length() && str.charAt(i) >='0' && str.charAt(i) <='9') {
-			result = result * 10 + (str.charAt(i)-'0');
-			//溢出判断
-			if(result > Integer.MAX_VALUE) {
-				return sign==1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-			}
-			++i;
-			
-		}
-		return ((int)result)*sign;
 	}
 	
 	

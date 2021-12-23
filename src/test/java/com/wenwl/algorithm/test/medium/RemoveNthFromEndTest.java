@@ -28,6 +28,20 @@ public class RemoveNthFromEndTest {
 	private ListNode head3 = new ListNode(1, new ListNode(2));
 	private ListNode expected3 = new ListNode(1);
 
+	@Test
+	public void test3() {
+		assertEquals(expected1.printList(), removeNthFromEnd.removeNthFromEnd3(head1, 2).printList());
+		assertEquals(expected2, removeNthFromEnd.removeNthFromEnd3(head2, 1));
+		assertEquals(expected3.printList(), removeNthFromEnd.removeNthFromEnd3(head3, 1).printList());
+	}
+
+	@Test
+	public void test2() {
+		assertEquals(expected1.printList(), removeNthFromEnd.removeNthFromEnd2(head1, 2).printList());
+		assertEquals(expected2, removeNthFromEnd.removeNthFromEnd2(head2, 1));
+		assertEquals(expected3.printList(), removeNthFromEnd.removeNthFromEnd2(head3, 1).printList());
+	}
+
 
 	@Test
 	public void test1() {
@@ -35,18 +49,5 @@ public class RemoveNthFromEndTest {
 		assertEquals(expected2, removeNthFromEnd.removeNthFromEnd1(head2, 1));
 		assertEquals(expected3.printList(), removeNthFromEnd.removeNthFromEnd1(head3, 1).printList());
 	}
-	
-	@Test
-	public void test2() {
-		ListNode node1 = new ListNode(1);
-		ListNode node2 = new ListNode(2);
-		
-		node1.next = node2;
-		
-		RemoveNthFromEnd removeNth =  new RemoveNthFromEnd();
-		
-		assertEquals(node1, removeNth.removeNthFromEnd1(node1, 1));
-	}
-
 
 }

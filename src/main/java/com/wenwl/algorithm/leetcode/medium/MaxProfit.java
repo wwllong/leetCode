@@ -8,7 +8,7 @@ public class MaxProfit {
 
 	/**
 	 * m3(2ms,200tc): 动态规划
-	 * T(n) = O(n), S(n) = O(1)
+	 * Tn = O(n), Sn = O(1)
 	 * */
 	public static int maxProfit3(int[] prices) {
 		int n = prices.length;
@@ -25,7 +25,7 @@ public class MaxProfit {
 
 	/**
 	 * m2(1ms,200tc): 基于m1, 由于股票的购买没有限制,采用贪心算法
-	 * T(n) = O(n), S(n) = O(1)
+	 * Tn = O(n), Sn = O(1)
 	 * */
 	public static int maxProfit2(int[] prices) {
 		int profit = 0;
@@ -37,7 +37,7 @@ public class MaxProfit {
 
 	/**
 	 * m1(1ms,200tc): 根据前小后大，决定买卖。
-	 * T(n) = O(n), S(n) = O(1)
+	 * Tn = O(n), Sn = O(1)
 	 */
 	public static int maxProfit1(int[] prices) {
 		int buyPrice = prices[0], sellPrice = prices[0];

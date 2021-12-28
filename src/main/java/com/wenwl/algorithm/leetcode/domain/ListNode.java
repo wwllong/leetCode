@@ -1,6 +1,7 @@
 package com.wenwl.algorithm.leetcode.domain;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Definition for singly-linked list.
@@ -46,4 +47,16 @@ public class ListNode {
         return this;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ListNode listNode = (ListNode) o;
+        return this.printList().equals(((ListNode) o).printList());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, next);
+    }
 }
